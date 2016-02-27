@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Random;
-
 import gamefeels.ScreenShake;
 import processing.core.PApplet;
 import processing.event.KeyEvent;
@@ -30,10 +28,10 @@ public class DiceSimulation extends PApplet
 	{
 		background(127);
 		stroke(0, 127);
-		s.shake();
 		for(int i=-width; i<2*width; i+=5) line(i, -width, i, 2*height);
 		for(int i=-height; i<2*height; i+=5) line(-height, i, 2*width, i);
 
+		s.shake();
 		if(s.isShaking())
 		{
 			dice.setRandom();

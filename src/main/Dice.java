@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import processing.core.PApplet;
-import processing.core.PGraphics;
 import processing.core.PImage;
 import processing.core.PVector;
 import util.RenderingUtils;
@@ -22,17 +21,17 @@ public class Dice
 	{
 		p=parent;
 		pos=new PVector(p.width/2, p.height/2);
-		dice=p.loadImage("res/dice.png");
+		dice=p.loadImage("res/dice1.png");
 		dice.resize(150, 150);
+		setRandom();
 		
-		Random r = new Random();
 		color = p.color(r.nextInt(192-64)+64, r.nextInt(192-64)+64, r.nextInt(192-64)+64);
 	}
 	
+	Random r = new Random();
 	public void setRandom()
 	{
 		ArrayList<Integer> nums = new ArrayList<>();
-		Random r = new Random();
 		for(int i=1; i<=20; i++) nums.add(i);
 		for(int i=0; i<10; i++)
 		{
@@ -40,7 +39,11 @@ public class Dice
 			values[i] = nums.get(rand);
 			nums.remove(rand);
 		}
-
+		setRandomColor();
+	}
+	
+	public void setRandomColor()
+	{
 		color = p.color(r.nextInt(192-64)+64, r.nextInt(192-64)+64, r.nextInt(192-64)+64);
 	}
 	
